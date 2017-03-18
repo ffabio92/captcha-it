@@ -1,26 +1,112 @@
 <?php
-$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
-$this->headTitle()->setSeparator(' - ');
-$this->headTitle('Zend Framework Tutorial');
+$this->headMeta ()->appendHttpEquiv ( 'Content-Type', 'text/html;charset=utf-8' );
+$this->headTitle ()->setSeparator ( ' - ' );
+$this->headTitle ( 'Zend Framework Tutorial' );
 
-echo $this->doctype();
+echo $this->doctype ();
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
+<head>
         <?php echo $this->headMeta(); ?>
         <?php echo $this->headTitle(); ?>
         <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/site.css'); ?> 
-        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/bootstrap-3.3.7-dist/css/bootstrap.min.css'); ?>
-    </head>
+        <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/bootstrap-3.3.7-dist/css/bootstrap.min.css'); ?>     
+</head>
 
-    <body>
-        <div id="content">
-            <h1><?php echo $this->escape($this->title); ?></h1>
-            <?php echo $this->layout()->content; ?>
-        </div>
+<body>
 
-        <button type="button" class="btn btn-primary">Bottone di prova presente in layout</button>
+	<div class="container">
 
-    </body>
+		<div class="row">
+
+			<div class="col-md-3" style="background-color: lavender;">
+
+				<div class="container-fluid">
+
+					<div class="sidebar-nav">
+
+						<ul class="nav navbar-nav">
+
+							<li><a href="#">Menu Item 1</a></li>
+							<li><a href="#">Menu Item 1</a></li>
+							<li><a href="#">Menu Item 1</a></li>
+							<li><a href="#">Menu Item 1</a></li>
+							<li><a href="#">Menu Item 1</a></li>
+
+						</ul>
+
+						<ul class="nav navbar-nav">
+
+							<li><a href="#">Menu Item 2</a></li>
+							<li><a href="#">Menu Item 2</a></li>
+							<li><a href="#">Menu Item 2</a></li>
+							<li><a href="#">Menu Item 2</a></li>
+							<li><a href="#">Menu Item 2</a></li>
+
+						</ul>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="col-sm-9">
+
+				<nav class="navbar navbar-default">
+
+					<div class="container-fluid">
+
+						<div class="navbar-header">
+
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse" aria-expanded="true">
+								<span class="sr-only">Toggle navigation</span> 
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span> 
+								<span class="icon-bar"></span>
+							</button>
+							
+							<a class="navbar-brand" href="<?php echo $this->url(array('controller' => 'index',  'action' => 'index')); ?>">Captcha-it</a>
+
+						</div>
+
+						<div class="collapse navbar-collapse">
+
+							<ul class="nav navbar-nav">
+								<li class="active">
+									<a href="<?php echo $this->url(array('controller' => 'index',  'action' => 'addcaptcha')); ?>">
+										Inserisci
+										<span class="sr-only">(current)</span>
+									</a>
+								</li>
+								<li><a href="#">Partecipa</a></li>
+								<li><a href="#">Esplora</a></li>
+							</ul>
+
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="#">Nome utente</a></li>
+								<li><a href="#">Logout</a></li>
+							</ul>
+
+						</div>
+
+					</div>
+
+				</nav>
+
+
+				<div id="content">
+					<h1><?php echo $this->escape($this->title); ?></h1>
+           			<?php echo $this->layout()->content; ?>
+        		</div>
+				
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
 
 </html>

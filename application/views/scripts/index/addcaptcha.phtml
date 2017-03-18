@@ -1,0 +1,32 @@
+<?php
+$this->title = "Inserisci il tuo captcha";
+$this->headTitle ( $this->title );
+echo $this->form;
+?>
+
+<form action="<?php echo $this->url(array('action' => 'confirmcaptcha')); ?>" method="post">
+
+	<div class="row col-md-12">
+
+		<p><?php echo $this->captcha['id']; ?> </p>
+		
+		<!-- TODO:CAPIRE COME PRENDERE LI DALLA AZIONE-->
+		<div>
+			<img id="captcha_image" src="<?php echo $this->baseUrl() . "/images/" . "0f4ae563bb3b39cc15973b82c04244e9" . ".png"; ?>" alt="[Captcha image]"></img>;
+		</div>
+
+		<div>
+			<input type="hidden" name="id" value="<?php echo $this->captcha['id']; ?>" />
+		</div>
+
+		<div>
+			<input type="text" name="text" value="Yes" />
+		</div>
+
+	</div>
+
+	<div class="row col-md-12">	
+		<button type="button" class="btn btn-primary">Conferma</button>
+	</div>
+
+</form>

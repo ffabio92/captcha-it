@@ -11,6 +11,23 @@ class IndexController extends Zend_Controller_Action {
         $this->view->albums = $albums->fetchAll();
     }
 
+    public function addcaptchaAction(){    	 
+    	 
+    	//Genera ogni volta un captcha nella cartella images sotto public
+    	$captcha = new Zend_Captcha_Image();
+    	$captcha->setFont('font.ttf')->setImgDir('images');    	
+    	$captcha->generate();
+    	
+    	//TODO:CAPIRE COME CAZZO RITORNARE QUESTO MALEDETTO ID DALL'ALTRA PARTE
+    	$idCaptcha = $captcha->getId();
+    	
+    	//$captchas = new Application_Model_DbTable_Captchas();
+    	//$captchas->$id->setValue($idCaptcha);
+    	
+    	return $idCaptcha;
+    	 
+    }
+    
     public function addAction() {
         $form = new Application_Form_Album();
         $form->submit->setLabel('Add');
